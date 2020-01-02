@@ -27,7 +27,7 @@ public class UploadAwsFile {
 
 		
 		 Regions clientRegion = Regions.DEFAULT_REGION;
-		String bucketName = "dataelements123";
+		String bucketName = "dat123";
 		String KeyName = "gross-domestic-product-september-2019-quarter-csv.csv";
 		String filepath = "s3.console.aws.amazon.com/s3/buckets/dataelements123/?region=ap-south-1&tab=overview";
 		ClientConfiguration clientConfiguration = new ClientConfiguration();
@@ -42,7 +42,7 @@ public class UploadAwsFile {
 		
 
 		try {
-			AWSCredentials credentials = new BasicAWSCredentials("AKIAIRKDJ6MFDPE7DL","3z+JmfR5kWvw26/ymcHVzR7WpAoaYgstI6Y4G");
+			AWSCredentials credentials = new BasicAWSCredentials("AKIAIRKDJ6M","3z+JmfR5kWvw26/ymcHVzR7Wp");
 
 			 @SuppressWarnings("deprecation")
 			AmazonS3 s3Client = new AmazonS3Client(credentials);
@@ -50,7 +50,7 @@ public class UploadAwsFile {
 			 List<PartETag> partETags = new ArrayList<PartETag>();
 
 			 
-			InitiateMultipartUploadRequest initRequest = new InitiateMultipartUploadRequest("dataelements123",
+			InitiateMultipartUploadRequest initRequest = new InitiateMultipartUploadRequest("dat123",
 					"gross-domestic-product-september-2019-quarter-csv.csv");
 			InitiateMultipartUploadResult initResponse = s3Client.initiateMultipartUpload(initRequest);
 
@@ -75,7 +75,7 @@ public class UploadAwsFile {
 				
 				
 			}
-			CompleteMultipartUploadRequest compRequest = new CompleteMultipartUploadRequest("dataelements123",
+			CompleteMultipartUploadRequest compRequest = new CompleteMultipartUploadRequest("dat123",
 					"gross-domestic-product-september-2019-quarter-csv.csv",
 
 					initResponse.getUploadId(), partETags);
